@@ -60,7 +60,7 @@ class Plugin extends PluginBase
     public function registerSettings(): array
     {
         return [
-            'training' => [
+            'csrf_settings' => [
                 'label' => 'vdlp.csrf::lang.plugin.name',
                 'description' => 'vdlp.csrf::lang.settings.description',
                 'icon' => 'icon-link',
