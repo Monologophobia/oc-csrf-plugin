@@ -6,6 +6,7 @@ namespace Vdlp\Csrf;
 
 use Cms\Classes\CmsController;
 use System\Classes\PluginBase;
+use System\Classes\SettingsManager;
 
 /**
  * Class Plugin
@@ -52,4 +53,21 @@ class Plugin extends PluginBase
             ],
         ];
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function registerSettings(): array
+    {
+        return [
+            'training' => [
+                'label' => 'vdlp.csrf::lang.plugin.name',
+                'description' => 'vdlp.csrf::lang.settings.description',
+                'icon' => 'icon-link',
+                'class' => 'Vdlp\Csrf\Models\Settings',
+                'category' => SettingsManager::CATEGORY_CMS,
+            ],
+        ];
+    }
+
 }

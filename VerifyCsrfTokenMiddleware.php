@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Vdlp\Csrf;
 
+use Cache;
 use Closure;
 use Illuminate\Contracts\Encryption\Encrypter;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -54,6 +55,9 @@ class VerifyCsrfTokenMiddleware
         $this->encrypter = $encrypter;
         $this->redirector = $redirector;
         $this->responseFactory = $responseFactory;
+        // Check the cache for any Settings-supplied except-routes
+        // Provide an empty array if no data is available
+        $this->except = Cache::get('except_routes', []);
     }
 
     /**

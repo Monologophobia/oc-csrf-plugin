@@ -1,0 +1,12 @@
+fields:
+
+    except_routes:
+        label: vdlp.csrf::lang.settings.label
+        type: repeater
+        prompt: vdlp.csrf::lang.settings.prompt
+        form:
+            fields:
+                route:
+                    label: vdlp.csrf::lang.settings.route_label
+                    type: text
+                    required: true
